@@ -1,0 +1,18 @@
+<h1>Home page</h1>
+<div *ngIf="info; then infoBlock else unknown"></div>
+<ng-template #infoBlock>
+  <div class="card">
+    <p>Логин: {{info.get('login')}}</p>
+    <p>Эл.почта: {{info.get('userEmail')}}</p>
+    <button class="btn btn-sm btn-primary" (click)="logOut()">
+      Выйти
+    </button>
+  </div>
+</ng-template>
+<ng-template #unknown>
+  <p>Вы не авторизированы</p>
+  <button class="btn btn-sm btn-primary" onclick="location.href = '/reg'">
+    Войти
+  </button>
+</ng-template>
+
